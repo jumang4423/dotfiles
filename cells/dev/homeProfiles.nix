@@ -7,8 +7,8 @@
     programs.git = {
       enable = true;
 
-      userName = "shinbunbun";
-      userEmail = "34409044+shinbunbun@users.noreply.github.com";
+      userName = "jumang4423";
+      userEmail = "catontheskate4423@gmail.com";
 
       extraConfig = {
         core.editor = "code --wait";
@@ -77,18 +77,6 @@
       };
     };
 
-  google_cloud_sdk =
-    { pkgs, ... }:
-    let
-      google-cloud-sdk-with-cloud-datastore-emulator = pkgs.google-cloud-sdk.withExtraComponents ([
-        pkgs.google-cloud-sdk.components.cloud-datastore-emulator
-      ]);
-    in
-    {
-      home.packages = with pkgs; [
-        google-cloud-sdk-with-cloud-datastore-emulator
-      ];
-    };
 
   /*
     graphql =

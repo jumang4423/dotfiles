@@ -53,7 +53,6 @@
       flake-utils,
       ...
     }@inputs:
-    # ① growOn で各種セルを展開
     let
       base =
         std.growOn
@@ -86,7 +85,6 @@
               "shells"
             ];
           };
-      # ② growOn の結果に formatter をマージ
     in
     base
     // {
@@ -97,5 +95,11 @@
         in
         pkgs.nixfmt-tree
       );
+      darwinConfigurations = base.darwinConfigurations;
+      packages = flake-utils.lib.eachDefaultSystemMap (system: {
+        darwinConfigurations = builtins.mapAttrs (name: config: {
+          system = config.system;
+        }) base.darwinConfigurations;
+      });
     };
 }

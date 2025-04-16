@@ -9,7 +9,7 @@ let
 in
 l.mapAttrs (_: lib.dev.mkShell) {
   default = {
-    name = "shinbunbun";
+    name = "jumang4423";
     imports = [ std.devshellProfiles.default ];
     commands = with nixpkgs; [
       { package = alejandra; }

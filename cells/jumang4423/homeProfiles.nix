@@ -8,13 +8,11 @@
     {
       home.packages = with pkgs; [
         gh
-        cocoapods
         llvm
         nerd-fonts.fira-code
         nil
         nixd
         nixfmt-rfc-style
-        warp-terminal
       ];
 
       # Let Home Manager install and manage itself.
